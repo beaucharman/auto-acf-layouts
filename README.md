@@ -18,10 +18,10 @@ Place this file in the default layouts folder, which is `wp-content/themes/name/
 
 **Changing the reference to the Layout Templates**
 
-The `LAYOUT_DIRECTORY` constant in the ACF_Layout class can be changed to anything that required. Say, if this line was changed to: 
+The `AACFL_DIRECTORY` constant in the ACF_Layout class can be changed to anything that required. Say, if this line was changed to: 
 
 ```
-const LAYOUT_DIRECTORY = '/acf-flexible/layout-templates/';
+define('AACFL_DIRECTORY', '/acf-flexible/layout-templates/');
 ```
 
 ACF_Layout would look for the layout templates in `wp-content/themes/name/acf-flexible/layout-templates/`.
@@ -34,7 +34,7 @@ Simply add something like the following to the page, and the ACF_Layout will sor
 ```php
 <?php while (has_sub_field('layout_name')) : ?>
 
-  <?php ACF_Layout::render(get_row_layout()); ?>
+  <?php Auto_ACF_Layout::render(get_row_layout()); ?>
 
 <?php endwhile; ?>
 ```
