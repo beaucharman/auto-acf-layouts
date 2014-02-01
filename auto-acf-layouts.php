@@ -11,17 +11,19 @@
  * http://www.advancedcustomfields.com/
  * http://www.advancedcustomfields.com/add-ons/flexible-content-field/
  *
- * Usgae: ACF_Layout::render(get_row_layout());
+ * Usgae: Auto_ACF_Layout::render(get_row_layout());
  */
  
-class ACF_Layout {
+class Auto_ACF_Layout {
  
  
   /**
    * Path of where the layout templates are found,
    * relative to the theme template directory.
    */
-  const LAYOUT_DIRECTORY = '/layouts/';
+  if (! defined('AACFL_DIRECTORY')) {
+    AACFL_DIRECTORY = '/layouts/';
+  }
  
  
   /**
