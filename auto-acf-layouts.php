@@ -21,7 +21,8 @@ class Auto_ACF_Layout {
    * Path of where the layout templates are found,
    * relative to the theme template directory.
    */
-  if (! defined('AACFL_DIRECTORY')) {
+  if (! defined('AACFL_DIRECTORY'))
+  {
     AACFL_DIRECTORY = '/layouts/';
   }
  
