@@ -32,9 +32,42 @@ ACF_Layout would look for the layout templates in `wp-content/themes/name/acf-fl
 Simply add something like the following to the page, and the ACF_Layout will sort out the rest :) 
 
 ```php
-<?php while (has_sub_field('layout_name')) : ?>
+<?php while (has_sub_field('flexible_content_layout_name')) : ?>
 
   <?php Auto_ACF_Layout::render(get_row_layout()); ?>
 
 <?php endwhile; ?>
+```
+
+You can also target specific ACFs, such as:
+
+```php
+<?php Auto_ACF_Layout::render('latest_event_select'); ?>
+```
+
+Furthermore, you can reuse the templates added to the `AACFL_DIRECTORY` without needing data from custom fields, simply pass the required data in an array, and then handel appropriately within the template. For example: 
+
+```php
+<?php 
+
+// single.php
+
+Auto_ACF_Layout::render('latest_event_select', $data = array('title', 'Custom Title')); ?>
+```
+
+```php
+<?php 
+
+// /library/acf-layouts//latest-event-select.php
+
+$title = null;
+
+if (get_field('title')) 
+{
+  $title = get_field('title');
+}
+else if (isset($data['title']))
+{
+  $title = $data['title'];
+}
 ```
