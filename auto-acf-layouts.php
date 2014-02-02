@@ -14,7 +14,8 @@
  * Usgae: Auto_ACF_Layout::render(get_row_layout());
  */
 
-class Auto_ACF_Layout {
+class Auto_ACF_Layout 
+{
 
 
 
@@ -22,7 +23,7 @@ class Auto_ACF_Layout {
   {
 
    /**
-    * Path of where the layout templates are found,
+    * Path to where the layout templates are found,
     * relative to the theme template directory.
     */
     if (! defined('AACFL_DIRECTORY'))
@@ -43,7 +44,7 @@ class Auto_ACF_Layout {
   static function get_layout($layout, $data = null)
   {
 
-    $full_layout_directory = get_template_directory() . self::LAYOUT_DIRECTORY;
+    $full_layout_directory = get_template_directory() . AACFL_DIRECTORY;
     $layout_file = '{{layout}}.php';
     $find = array('{{layout}}', '_');
     $replace = array($layout, '-');
@@ -54,6 +55,7 @@ class Auto_ACF_Layout {
     if (file_exists($full_layout_directory . $new_layout_file))
     {
       include($full_layout_directory . $new_layout_file);
+      
       return true;
     }
     else
@@ -64,6 +66,7 @@ class Auto_ACF_Layout {
       if (file_exists($full_layout_directory . $new_layout_file))
       {
         include($full_layout_directory . $new_layout_file);
+        
         return true;
       }
     }
@@ -74,7 +77,7 @@ class Auto_ACF_Layout {
      */
     if (WP_DEBUG)
     {
-      echo "<pre>ACF_Layout: No layout template found for $layout.</pre>";
+      echo '<pre><span style="color:red;">[Auto_ACF_Layout]: No layout template found for <strong>$layout.</strong></pre>';
     }
 
     return false;
@@ -88,7 +91,7 @@ class Auto_ACF_Layout {
    * @param  {string} $layout
    * @return {string}
    */
-  static function render($layout, $data = null)
+  static public function render($layout, $data = null)
   {
     return self::get_layout($layout, $data);
   }
