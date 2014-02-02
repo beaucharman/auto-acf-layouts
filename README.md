@@ -53,9 +53,7 @@ Furthermore, you can reuse the templates added to the `AACFL_DIRECTORY` without 
 // single.php
 
 Auto_ACF_Layout::render('latest_event_select', $data = array('title', 'Custom Title')); ?>
-```
 
-```php
 <?php 
 
 // /library/acf-layouts//latest-event-select.php
