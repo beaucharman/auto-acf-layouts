@@ -10,8 +10,6 @@
  * Logical layout automation for Advanced Custom Fields and it's Flexible Content Field add on.
  * http://www.advancedcustomfields.com/
  * http://www.advancedcustomfields.com/add-ons/flexible-content-field/
- *
- * Usgae: Auto_ACF_Layout::render(get_row_layout());
  */
 
 class Auto_ACF_Layout 
