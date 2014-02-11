@@ -6,25 +6,24 @@
 
 **Referencing ACF_Layout**
 
-Either `include` ACF_Layout.php in your theme, or paste it's contents in your functions.php file.
+`include` auto-acf-layouts.php in your theme.
 
 **Creating the Layout Templates**
 
 For each Flexible Content Field layout type, create a file that represents its *name* as a php file (dashes can replace underscores for better, consistant filename style).
 
 For example, the layout type `image_gallery_layout` can be named `image_gallery_layout.php` or `image-gallery-layout.php`. 
-
 Place this file in the default layouts folder, which is `wp-content/themes/name/layouts/`.
 
 **Changing the reference to the Layout Templates**
 
-The `AACFL_DIRECTORY` constant in the ACF_Layout class can be changed to anything that required. Say, if this line was changed to: 
+The `AACFL_DIRECTORY` constant in the ACF_Layout class file can be changed to point to the themes includes folder, template parts folder and so on. Say, if this line was changed to: 
 
 ```
-define('AACFL_DIRECTORY', '/acf-flexible/layout-templates/');
+define('AACFL_DIRECTORY', '/library/layout-templates/');
 ```
 
-ACF_Layout would look for the layout templates in `wp-content/themes/name/acf-flexible/layout-templates/`.
+Auto_ACF_Layout would look for the layout templates in `wp-content/themes/name/library/layout-templates/`.
 
 
 **Rendering the Layout Templates**
@@ -56,7 +55,7 @@ Auto_ACF_Layout::render('latest_event_select', $data = array('title', 'Custom Ti
 
 <?php 
 
-// /library/acf-layouts//latest-event-select.php
+// library/acf-layouts//latest-event-select.php
 
 $title = null;
 
