@@ -13,6 +13,8 @@
  * http://www.advancedcustomfields.com/add-ons/flexible-content-field/
  */
 
+
+
 class Auto_ACF_Layout 
 {
 
@@ -34,13 +36,13 @@ class Auto_ACF_Layout
 
 
   /**
-   * Get Layout
+   * Render
    *
    * @param  {string} $file
    * @param  {array}  $data
    * @return {string}
    */
-  static function get_layout($layout, $data = null)
+  static function render($layout, $data = null)
   {
 
     $full_layout_directory = get_template_directory() . AACFL_DIRECTORY;
@@ -82,19 +84,6 @@ class Auto_ACF_Layout
     return false;
   }
 
-
-
-  /**
-   * Render
-   *
-   * @param  {string} $layout
-   * @return {string}
-   */
-  static public function render($layout, $data = null)
-  {
-    return self::get_layout($layout, $data);
-  }
-  
 }
 
 new Auto_ACF_Layout;
