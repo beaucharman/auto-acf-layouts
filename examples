@@ -1,0 +1,54 @@
+<?php
+
+/**
+ *
+ * Flexible Content Layout: Gravity Forms - Form Select
+ *
+ */
+
+
+
+/**
+ * Controller
+ */
+global $post;
+
+/* Get the ID to use */
+$post_id = (isset($data['post_id'])) ? $data['post_id'] : $post->ID;
+
+/* Get Fields */
+$form = array(
+	'attr' => (get_field('form_select', $post_id)) ? get_field('form_select', $post_id) : null,
+	'display_title' => (isset($data['display_title'])) ?  : false,
+	'display_description'  => (isset($data['display_description'])) ?  : false,
+	'display_inactive' => (isset($data['display_inactive'])) ?  : false,
+	'field_values' => (isset($data['field_values'])) ?  : null,
+	'ajax' => (isset($data['ajax'])) ?  : false
+);
+
+
+
+/**
+ * View
+ */
+
+?>
+
+<?php if ($form['attr'] && $form['attr']->is_active) : ?>
+
+	<div class="gravity-form__form--wrapper">
+
+		<?php gravity_form_enqueue_scripts($form['attr']->id, $form['ajax']); ?>
+
+		<?php gravity_form(
+			$form['attr']->id,
+			$form['display_title'],
+			$form['display_description'],
+			$form['display_inactive'],
+			$form['field_values'],
+			$form['ajax']
+		); ?>
+
+	</div>
+
+<?php endif; ?>
